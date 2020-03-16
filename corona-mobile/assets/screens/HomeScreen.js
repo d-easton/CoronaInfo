@@ -6,34 +6,100 @@ import {
   StyleSheet,
   Text,
   View,
-  Button
+  Button,
+  TouchableOpacity,
+  Image
 } from 'react-native';
 
 export default function HomeScreen({ navigation }) {
     return (
-        <View style={styles}>
-            <Text>Home Screen</Text>
-            <Button title="Latest News" onPress={() => navigation.navigate('LatestNews')}/>
-            <Button title="Global Resources" onPress={() => navigation.navigate('GlobalResources')}/>
-            <Button title="Symptom Check" onPress={() => navigation.navigate('SymptomCheck')}/> 
-            <Button title="Testing Centers" onPress={() => navigation.navigate('TestingCenters')}/>
-            <Button title="Travel Information" onPress={() => navigation.navigate('TravelInformation')}/>
-            <Button title="Live Gloabl Outbreak Tracker" onPress={() => navigation.navigate('LiveTracker')}/>
-
+        <View style={styles.container}>
+            <View style={{flexDirection: "row"}}>
+              <Text style={styles.title}>
+                ProjectCorona
+              </Text>
+              <Image style={styles.titleImage} source={require('./../images/e026047582f6c14e9a6cdfca33e4f20b.png')}></Image>
+            </View>
+            
+            <TouchableOpacity title="Latest News" onPress={() => navigation.navigate('LatestNews')}>
+              <Text style={styles.button}>
+                Latest News
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity title="Global Resources" onPress={() => navigation.navigate('GlobalResources')}>
+              <Text style={styles.button}>
+                Global Resources
+              </Text>
+            </TouchableOpacity>
+            <TouchableOpacity title="Symptom Check" onPress={() => navigation.navigate('SymptomCheck')}>
+              <Text style={styles.button}>
+                Symptom Check
+              </Text>
+            </TouchableOpacity>           
+            <TouchableOpacity title="Testing Centers" onPress={() => navigation.navigate('TestingCenters')}>
+              <Text style={styles.button}>
+                Testing Centers
+              </Text>
+            </TouchableOpacity> 
+            <TouchableOpacity title="Travel Information" onPress={() => navigation.navigate('TravelInformation')}>
+              <Text style={styles.button}>
+                Travel Information
+              </Text>
+            </TouchableOpacity> 
+            <TouchableOpacity title="Live Tracker" onPress={() => navigation.navigate('LiveTracker')}>
+              <Text style={styles.buttonSpecialRed}>
+                Live Global Outbreak Tracker
+              </Text>
+            </TouchableOpacity> 
         </View>
     );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#9bcfa5',
+    width: '100%',
+    height: '100%',
+  },
+  button: {
+    backgroundColor: '#2c9e93',
+    borderRadius: 25,
+    color: 'white',
+    fontSize: 18,
+    fontWeight: '200',
+    overflow: 'hidden',
+    padding: 18,
+    margin: 7,
+    textAlign:'left',
+  },
+  buttonSpecialRed: {
+    backgroundColor: '#db3a16',
+    borderRadius: 25,
+    color: 'white',
+    fontSize: 18,
+    fontWeight: '200',
+    overflow: 'hidden',
+    padding: 18,
+    margin: 7,
+    textAlign:'center',
   },
   title: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+    flex: 1,
+    fontSize: 32,
+    // textAlign: 'left',
+    // textAlignVertical: 'bottom',
+    height: 120,
+    // marginLeft: 10,
+    // marginVertical: 45,
+    // backgroundColor: 'blue',
+    color: 'white',
+    paddingVertical: 50,
+    paddingLeft: 30
+  },
+  titleImage: {
+    // flex: 1,
+    width: 120,
+    height: 120,
+    margin: 10
   }
 });
